@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100vh;
     background:linear-gradient(-180deg, var(--light-pink) 35%, var(--white) 0%);
     filter: drop-shadow(0px 0px 50px #535353);
+    padding: 0;
 }
 
 .navbar {
@@ -76,4 +77,13 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     text-shadow: -1px 1px 2px #757272;
+}
+
+footer {
+    height: 20vh;
+    background-color: var(--light-pink);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
