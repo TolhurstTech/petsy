@@ -1,0 +1,22 @@
+
+:root {
+    --light-green: #b6dccf;
+    --light-pink: #fde1d6;
+    --dark-green: #315659;
+    --white: #fdfdfd;
+  }
+
+body {
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+}
+
+.bg-container{
+    background-color: var(--light-green);
+}
+
+.main-wrapper {
+    height: 100vh;
+    background:linear-gradient(-180deg, var(--light-pink) 25%, var(--white) 0%);
+}
