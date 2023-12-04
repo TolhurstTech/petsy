@@ -6,10 +6,20 @@
     --white: #fdfdfd;
   }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     height: 100vh;
     display: flex; 
     justify-content: center;
+    font-family: 'Hedvig Letters Sans', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Hedvig Letters Serif', Georgia, 'Times New Roman', Times, serif;
 }
 
 .bg-container{
@@ -18,5 +28,52 @@ body {
 
 .main-wrapper {
     height: 100vh;
-    background:linear-gradient(-180deg, var(--light-pink) 25%, var(--white) 0%);
+    background:linear-gradient(-180deg, var(--light-pink) 35%, var(--white) 0%);
+    filter: drop-shadow(0px 0px 50px #535353);
+}
+
+.navbar {
+    background-color: var(--light-pink);
+    font-family: 'Hedvig Letters Serif', Georgia, 'Times New Roman', Times, serif;
+    color: var(--dark-green);
+}
+
+.navbar-brand {
+    font-family: Playball, Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.nav-link {
+    color: var(--dark-green);
+    font-weight: 600;
+    display: flex;
+    justify-content: end;
+}
+
+.responsive-img {
+        width: 50%;
+        height: auto;
+}
+
+.puppy-head {
+    position: relative;
+    top: 15px;
+    justify-content: center;
+    display: flex;
+    z-index: 20;
+}
+
+.search-box {
+    background-color: var(--light-green);
+    width: 100%;
+    height: 10rem;
+    border-radius: 20px;
+    filter: drop-shadow(0px 0px 10px #adadad);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: -1px 1px 2px #757272;
 }
