@@ -6,9 +6,9 @@
     --white: #fdfdfd;
     --fa-style-family: "Font Awesome 6 Pro";
     --fa-style: 400;
-    --fa-border-color: red;
+    
     --fa-primary-color: green;
-    --fa-secondary-color: red;
+   
   }
 
 * {
@@ -17,9 +17,7 @@
 }
 
 body {
-    height: 100vh;
-    display: flex; 
-    justify-content: center;
+    min-height: 100vh;
     font-family: 'Hedvig Letters Sans', Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -27,15 +25,20 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Hedvig Letters Serif', Georgia, 'Times New Roman', Times, serif;
 }
 
+main {
+    margin-bottom: 10rem;
+}
+
 .bg-container{
     background-color: var(--light-green);
 }
 
 .main-wrapper {
-    height: 100vh;
+    min-height: 100vh;
     background:linear-gradient(-180deg, var(--light-pink) 35%, var(--white) 0%);
     filter: drop-shadow(0px 0px 50px #535353);
     padding: 0;
+    padding-bottom: 3rem;
 }
 
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Navbar Styles **/
@@ -61,8 +64,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Search box styles **/
 .responsive-img {
-        width: 50%;
-        height: auto;
+    width: 50%;
+    height: auto;
 }
 
 .puppy-head {
@@ -84,14 +87,15 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Footer **/
 footer {
-    height: 20vh;
+    height: 10rem;
     background-color: var(--light-pink);
-    position: fixed;
-    left: 0;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
