@@ -15,6 +15,7 @@ class Customer(models.Model):
 
 STATUS = ((0, "Draft"), (1, "Published"))
 FOR_SALE =((0, "For Sale"),(1, "Sold Out"))
+CATEGORY =((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"))
 
 class Product(models.Model):
     '''
@@ -22,6 +23,7 @@ class Product(models.Model):
     '''
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    category = models.IntegerField(choices=CATEGORY, default=0)
     price = models.FloatField()
     stock = models.IntegerField()
     featured_image = CloudinaryField('image', default='placeholder')
