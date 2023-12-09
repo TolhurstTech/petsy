@@ -13,7 +13,7 @@ class Customer(models.Model):
         return self.name
 
 
-STATUS = ((0, "Draft"), (1, "Published"))
+DRAFT = ((0, "Yes"), (1, "No"))
 FOR_SALE =((0, "For Sale"),(1, "Sold Out"))
 CATEGORY =((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"),(6, "Dog Bowls"))
 
@@ -31,7 +31,7 @@ class Product(models.Model):
     sold = models.IntegerField(choices=FOR_SALE, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    draft = models.IntegerField(choices=STATUS, default=0)
+    draft = models.IntegerField(choices=DRAFT, default=0)
 
     def __str__(self):
         return self.name

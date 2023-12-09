@@ -4,5 +4,61 @@
 {%block content %}
 
 <h2>Store</h2>
+<!-- index.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for product in product_list %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    {% if "placeholder" in product.featured_image.url %}
+                                        <img class="card-img-top" src="{% static 'images/placeholder.png' %}"
+                                            alt="placeholder image">
+                                    {% else %}
+                                        <img class="card-img-top" src=" {{ product.featured_image.url }}"
+                                            alt="{{ product.name }}">
+                                    {% endif %}
+                                    <div class="image-flash">
+                                        <p class="author">In: {{ product.category }}</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="post-link">
+                                    <h2 class="card-title">{{ product.name }}</h2>
+                                    <p>£{{ product.price }}</p>
+                                </a>
+
+                                <hr>
+                                <p class="card-text text-muted h6">{{ product.created_on }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 %}
+                </div>
+                <div class="row">
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; PREV</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
 
 {% endblock %}
