@@ -20,10 +20,12 @@ class Product(models.Model):
     '''
     Stores a single product
     '''
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     price = models.FloatField()
     stock = models.IntegerField()
     featured_image = CloudinaryField('image', default='placeholder')
+    content = models.TextField()
     sold = models.IntegerField(choices=FOR_SALE, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
