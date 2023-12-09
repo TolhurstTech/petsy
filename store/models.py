@@ -15,7 +15,7 @@ class Customer(models.Model):
 
 STATUS = ((0, "Draft"), (1, "Published"))
 FOR_SALE =((0, "For Sale"),(1, "Sold Out"))
-CATEGORY =((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"))
+CATEGORY =((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"),(6, "Dog Bowls"))
 
 class Product(models.Model):
     '''
