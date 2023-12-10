@@ -37,7 +37,7 @@
                     </div>
 
                     <hr>
-                    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                    <input id="form-button" class="btn pnk-btn btn-block" type="submit" value="Continue">
                 </form>
             </div>
 
@@ -53,16 +53,18 @@
                 <hr>
                 <h3>Order Summary</h3>
                 <hr>
+                {% for item in items %}
                 <div class="cart-row">
                     <div class="flex-2">
-                        <img class="row-image" src="{% static 'images/placeholder.png'%}">
+                        <img class="row-image" src="{{ item.product.featured_image.url }}">
                     </div>
-                    <div class="flex-2"><p>Product 1</p></div>
-                    <div class="flex-1"><p>£20.00</p></div>
-                    <div class="flex-1"><p>x2</p></div>
+                    <div class="flex-2"><p>{{ item.product.name }}</p></div>
+                    <div class="flex-1"><p>£{{ item.product.price|floatformat:2}}</p></div>
+                    <div class="flex-1"><p>x {{ item.quantity }}</p></div>
                 </div>
-                <h5>Items: 2</h5>
-                <h5>Total: £40.00</h5>
+                {% endfor %}
+                <h5>Items: {{ order.get_cart_items }}</h5>
+                <h5>Total: £{{order.get_cart_total|floatformat:2}}</h5>
             </div>
         </div>
     </div>
