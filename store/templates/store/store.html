@@ -16,6 +16,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="image-container">
+                                    <a href="#" class="post-link">
                                     {% if "placeholder" in product.featured_image.url %}
                                         <img class="card-img-top" src="{% static 'images/placeholder.png' %}"
                                             alt="placeholder image">
@@ -27,9 +28,9 @@
                                         <p class="author">In: {{ product.category }}</p>
                                     </div>
                                 </div>
-                                <a href="#" class="post-link">
+                                
                                     <h2 class="card-title">{{ product.name }}</h2>
-                                    <p>£{{ product.price }}</p>
+                                    <p>£{{ product.price | floatformat:2 }}</p>
                                 </a>
 
                                 <hr>
