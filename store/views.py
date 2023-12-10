@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
-from .models import Product, Order
+import json
+from .models import Product, Order, OrderItem
+
 
 # Create your views here.
 
@@ -62,4 +64,28 @@ def checkout(request):
 
 
 def updateItem(request):
+    # Get the body sent in our fetch from updateUserOrder
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+
+    print('Action: ', action)
+    print('productId: ', productId)
+    
+    # Get the customer
+    customer = request.user.customer
+    # Get the product
+    product = Product.objects.get(id=productId)
+    # Get or create the order
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    # Get of create the item
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+
+    # Update item quantity
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity - 1)
+
+    orderItem.save()
     return JsonResponse('Item was added', safe=False)
