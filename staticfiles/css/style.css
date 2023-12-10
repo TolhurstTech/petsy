@@ -52,6 +52,17 @@ main {
     font-size: 1.2rem;
 }
 
+.pnk-btn:hover {
+    border-radius: 500px;
+    border-color: var(--light-green);
+    border-width: 2px;
+    background-color: var(--dark-green);
+    color: var(--white);
+    padding: 0.375rem 0.75rem;
+    text-wrap: nowrap;
+    font-size: 1.2rem;
+}
+
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Navbar Styles **/
 .navbar {
     background-color: var(--light-pink);
@@ -220,14 +231,6 @@ footer {
 /** ------------------------------------------------------------------------------------------------------------------------------------------ Store styles **/
 
 .add-btn {
-    border-radius: 500px;
-    border-color: var(--dark-green);
-    border-width: 2px;
-    background-color: var(--light-pink);
-    color: var(--dark-green);
-    padding: 0.375rem 0.75rem;
-    text-wrap: nowrap;
-    font-size: 1.2rem;
     position: relative;
     top: 35px;
 
