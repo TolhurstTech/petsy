@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from .models import Product, Order
 
 # Create your views here.
@@ -59,3 +59,7 @@ def checkout(request):
         'order' : order
     }
     return render(request, 'store/checkout.html', context)
+
+
+def updateItem(request):
+    return JsonResponse('Item was added', safe=False)
