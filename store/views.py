@@ -86,6 +86,12 @@ def updateItem(request):
         orderItem.quantity = (orderItem.quantity + 1)
     elif action == 'remove':
         orderItem.quantity = (orderItem.quantity - 1)
-
+    
     orderItem.save()
+
+    # Delete  item if total is zero
+    if orderItem.quantity <= 0:
+        orderItem.delete()
+
+    
     return JsonResponse('Item was added', safe=False)
