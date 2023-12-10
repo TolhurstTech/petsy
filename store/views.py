@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Product
+from .models import Product, Order
 
 # Create your views here.
 
@@ -26,6 +26,9 @@ def cart(request):
     ``items``
         All items with this order ID to be attached to the order
 
+    ``order``
+        The users current order/open cart object
+        
     :template:`store/cart.html`
     '''
     if request.user.is_authenticated:
@@ -36,7 +39,8 @@ def cart(request):
         items = []
 
     context = {
-        'items' : items
+        'items' : items,
+        'order' : order
     }
     return render(request, 'store/cart.html', context)
 

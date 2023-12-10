@@ -41,6 +41,17 @@ main {
     padding-bottom: 3rem;
 }
 
+.pnk-btn {
+    border-radius: 500px;
+    border-color: var(--dark-green);
+    border-width: 2px;
+    background-color: var(--light-pink);
+    color: var(--dark-green);
+    padding: 0.375rem 0.75rem;
+    text-wrap: nowrap;
+    font-size: 1.2rem;
+}
+
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Navbar Styles **/
 .navbar {
     background-color: var(--light-pink);
@@ -103,9 +114,8 @@ footer {
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Cart Styles **/
 
 .box-element{
-	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
-	background-color: #fff;
-	border-radius: 4px;
+	border-radius: 20px;
+    border: 2px solid var(--dark-green);
 	padding: 10px;
 }
 
