@@ -6,6 +6,7 @@
         <div class="col-lg-5">
             <div class="box-element" id="form-wrapper">
                 <form id="form">
+                    {% csrf_token %}
                     <div id="user-info">
                         <div class="form-field">
 							<input required class="form-control" id="customer-name" type="text" name="name" placeholder="Name">
@@ -72,5 +73,9 @@
 {% endblock %}
 
 {% block scripts %}
+    <script type="text/javascript">
+        // Set total here so can use django template tags to get value
+        var total = '{{ order.get_cart_total }}'
+    </script>
     <script type="text/javascript" src="{% static 'js/checkout.js' %}"></script>
 {% endblock %}

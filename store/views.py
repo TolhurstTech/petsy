@@ -3,7 +3,8 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 import json
-from .models import Product, Order, OrderItem
+import datetime
+from .models import Product, Order, OrderItem, ShippingAddress
 
 
 # Create your views here.
@@ -94,7 +95,7 @@ def updateItem(request):
     product = Product.objects.get(id=productId)
     # Get or create the order
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    # Get of create the item
+    # Get or create the item
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
 
     # Update item quantity
@@ -115,4 +116,30 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data =json.loads(request.body)
+    print(data)
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+
+        # Check cart items haven't been manipulated in front end with JS before setting order to complete
+        if total == order.get_cart_total:
+            order.complete = True
+        order.save()
+
+        ShippingAddress.objects.create(
+            customer=customer,
+            order=order,
+            address=data['shipping']['address'],
+            city=data['shipping']['city'],
+            county=data['shipping']['county'],
+            postcode=data['shipping']['postcode'],
+        )
+
+    else:
+        print('User is not logged in')
+
     return JsonResponse('Payment Complete', safe=False)

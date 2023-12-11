@@ -1,5 +1,7 @@
 var form = document.getElementById('form')
-var total = '{{ order.get_cart_total|floatFormat:2 }}'
+csrftoken = form.getElementsByTagName("input")[0].value
+
+console.log('Total: ', total)
 
 // Hide name and email fields if user is logged in
 if (user != 'AnonynousUser'){
@@ -48,4 +50,25 @@ function submitFormData() {
         userFormData.name = form.name.value
         userFormData.email = form.email.value
     }
+
+    var url = '/process_order/'
+
+    fetch(url, {
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRFToken':csrftoken,
+        },
+        body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),
+    })
+
+    .then((response) => response.json())
+
+    .then((data) => {
+        console.log('Success:', data);
+        alert('Transaction completed');
+        window.location.href = "/"
+    })
+
+
 }
