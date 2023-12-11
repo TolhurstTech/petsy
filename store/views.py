@@ -8,15 +8,23 @@ from .models import Product, Order, OrderItem
 
 # Create your views here.
 
-class ProductList(generic.ListView):
+class ProductList(generic.ListView):    
     model = Product
     queryset = Product.objects.filter(draft=1)
     template_name = "store/store.html"
     paginate_by = 6
 
-def store(request):
-    context = {}
-    return render(request, 'store/store.html', context)
+    # Override class context method to pass cart total as cartItems to the view template
+    def get_context_data(self,**kwargs):
+        customer = self.request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        context = super(ProductList,self).get_context_data(**kwargs)
+        # Check if guest cart
+        if self.request.user.is_authenticated:
+            context['cartItems'] = order.get_cart_items
+        else:
+            context['cartItems'] = ['get_cart_items']
+        return context
 
 def cart(request):
     '''
@@ -33,17 +41,22 @@ def cart(request):
 
     :template:`store/cart.html`
     '''
+
+    # Quick way to send cart total to the template for the navbar
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
     else:
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
 
     context = {
         'items' : items,
-        'order' : order
+        'order' : order,
+        'cartItems': cartItems
     }
     return render(request, 'store/cart.html', context)
 
@@ -52,13 +65,16 @@ def checkout(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
     else:
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
 
     context = {
         'items' : items,
-        'order' : order
+        'order' : order,
+        'cartItems': cartItems
     }
     return render(request, 'store/checkout.html', context)
 
@@ -87,10 +103,12 @@ def updateItem(request):
     elif action == 'remove':
         orderItem.quantity = (orderItem.quantity - 1)
     
+    # Save the item
     orderItem.save()
 
     # Delete  item if total is zero
     if orderItem.quantity <= 0:
+        # Give the user a prompt here to check if they would like to delete it
         orderItem.delete()
 
     
