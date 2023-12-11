@@ -113,3 +113,6 @@ def updateItem(request):
 
     
     return JsonResponse('Item was added', safe=False)
+
+def processOrder(request):
+    return JsonResponse('Payment Complete', safe=False)
