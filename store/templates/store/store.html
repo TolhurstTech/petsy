@@ -1,6 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+{% block search %}
+    <div class="row justify-content-center">
+        <div class="col-8 col-md-6 col-lg-4">
+            <div class="puppy-head">
+                <img src="{% static 'images/puppyhead.png' %}" class="responsive-img">
+            </div>
+            <div class="search-box vstack col-4">
+                <p>Looking for something? Let me fetch that for you!</p>
+                <input type="text" placeholder="Go Fetch">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {%block content %}
 
 

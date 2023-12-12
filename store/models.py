@@ -24,7 +24,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     category = models.IntegerField(choices=CATEGORY, default=0)
-    price = models.FloatField()
+    price = models.DecimalField(max_digits=7, decimal_places=2)
     stock = models.IntegerField()
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()

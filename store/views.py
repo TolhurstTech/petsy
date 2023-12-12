@@ -17,13 +17,14 @@ class ProductList(generic.ListView):
 
     # Override class context method to pass cart total as cartItems to the view template
     def get_context_data(self,**kwargs):
-        customer = self.request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        context = super(ProductList,self).get_context_data(**kwargs)
         # Check if guest cart
         if self.request.user.is_authenticated:
+            customer = self.request.user.customer
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
+            context = super(ProductList,self).get_context_data(**kwargs)
             context['cartItems'] = order.get_cart_items
         else:
+            context = super(ProductList,self).get_context_data(**kwargs)
             context['cartItems'] = ['get_cart_items']
         return context
 
