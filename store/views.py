@@ -20,7 +20,10 @@ class ProductList(generic.ListView):
         # Check if guest cart
         if self.request.user.is_authenticated:
             # Get customer or create it if a new user
-            customer, created = Customer.objects.get_or_create(user=self.request.user, name=self.request.user.first_name, email=self.request.user.email)
+            try:
+                customer = customer = self.request.user.customer
+            except AttributeError:
+                customer, created = Customer.objects.get_or_create(user=self.request.user, name=self.request.user.first_name + " " + self.request.user.last_name, email=self.request.user.email)
             order, created = Order.objects.get_or_create(customer=customer, complete=False)
             context = super(ProductList,self).get_context_data(**kwargs)
             context['cartItems'] = order.get_cart_items
