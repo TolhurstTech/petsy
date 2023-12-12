@@ -32,6 +32,30 @@ class ProductList(generic.ListView):
             context['cartItems'] = ['get_cart_items']
         return context
 
+
+def product_detail(request, slug):
+    """
+    Display an individual :model:`store.Product`.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`store.Product`.
+
+    **Template:**
+
+    :template:`store/product_detail.html`
+    """
+
+    queryset = Product.objects.filter(draft=1)
+    product = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "store/product_detail.html",
+        {"product": product},
+    )
+
 def cart(request):
     '''
     Fetches or creates a single :model: `Order` instance for the current customer dynamically

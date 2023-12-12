@@ -32,7 +32,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="image-container">
-                                    <a href="#" class="post-link">
+                                    <a href="{% url 'product_detail' product.slug %}" class="post-link">
                                     {% if "placeholder" in product.featured_image.url %}
                                         <img class="card-img-top" src="{% static 'images/placeholder.png' %}"
                                             alt="placeholder image">
