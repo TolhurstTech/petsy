@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 import json
 import datetime
-from .models import Product, Order, OrderItem, ShippingAddress
+from .models import Customer, Product, Order, OrderItem, ShippingAddress
 
 
 # Create your views here.
@@ -19,7 +19,8 @@ class ProductList(generic.ListView):
     def get_context_data(self,**kwargs):
         # Check if guest cart
         if self.request.user.is_authenticated:
-            customer = self.request.user.customer
+            # Get customer or create it if a new user
+            customer, created = Customer.objects.get_or_create(user=self.request.user, name=self.request.user.first_name, email=self.request.user.email)
             order, created = Order.objects.get_or_create(customer=customer, complete=False)
             context = super(ProductList,self).get_context_data(**kwargs)
             context['cartItems'] = order.get_cart_items
