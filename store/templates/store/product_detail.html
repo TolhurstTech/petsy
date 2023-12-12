@@ -21,19 +21,35 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-4 mt-3">
-            {% if "placeholder" in product.featured_image.url %}
-                <img class="card-img-top" src="{% static 'images/placeholder.png' %}"
-                    alt="placeholder image">
-            {% else %}
-                <img class="card-img-top" src=" {{ product.featured_image.url }}"
-                    alt="{{ product.name }}">
-            {% endif %}
-           
+        <div class="col-12">
+            <a class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
         </div>
-        <div class="col-8">
-            <h2>{{ product.name }}</h2>
-            {{ product.content | safe }}
+        <div class="row">
+            <div class="col-4 mt-3">
+                {% if "placeholder" in product.featured_image.url %}
+                    <img class="card-img-top" src="{% static 'images/placeholder.png' %}"
+                        alt="placeholder image">
+                {% else %}
+                    <img class="card-img-top" src=" {{ product.featured_image.url }}"
+                        alt="{{ product.name }}">
+                {% endif %}
+            
+            </div>
+            <div class="col-8">
+                <h2>{{ product.name }}</h2>
+                {{ product.content | safe }}
+                <div class="row justify-content-between align-items-end">
+                    <div class="col-2 mt-5">
+                        <h4>Price</h4>
+                        <h3>£{{ product.price}}</h3>
+                    </div>
+
+                    <div class="col-3 mt-5">
+                        <button data-product={{product.id}} data-action=add 
+                            class="btn pnk-btn update-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
