@@ -128,6 +128,7 @@ footer {
 	border-radius: 20px;
     border: 2px solid var(--dark-green);
 	padding: 10px;
+    background-color: var(--white);
 }
 
 .thumbnail{
