@@ -32,9 +32,14 @@ class Product(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     draft = models.IntegerField(choices=DRAFT, default=0)
-
+    
+    class Meta:
+        ordering = ["-created_on"]
+    
     def __str__(self):
-        return self.name
+        return f"Product: {self.name}"
+
+    
 
 RATING = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5))
 
@@ -49,6 +54,13 @@ class Review(models.Model):
     content = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Review | {self.content} by {self.author}"
+    
 
 
 class Order(models.Model):

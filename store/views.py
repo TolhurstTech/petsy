@@ -82,7 +82,10 @@ def product_detail(request, slug):
 
     queryset = Product.objects.filter(draft=1)
     product = get_object_or_404(queryset, slug=slug)
+    reviews = product.product_reviews.all().order_by("-created_on")
+    review_count = product.product_reviews.filter(approved=True).count()
 
+    # Create customer and cart
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -97,7 +100,9 @@ def product_detail(request, slug):
         request,
         "store/product_detail.html",
         {"product": product,
-         "cartItems": cartItems
+         "cartItems": cartItems,
+         "reviews": reviews,
+         "review_count": review_count,
         },
     )
 
