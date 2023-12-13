@@ -91,6 +91,10 @@
                                     This comment is awaiting approval
                                 </p>
                             {% endif %}
+                            {% if user.is_authenticated and review.author == user %}
+                                <button class="btn btn-edit"
+                                    data-review_id="{{ review.id }}" id="review{{ review.id }}">Edit</button>
+                            {% endif %}
                         </div>
                     <!-- Our for loop ends here -->
                     {% endfor %}
@@ -98,7 +102,7 @@
                 </div>
             </div>
 
-             <!-- Creating New Comments -->
+             <!-- Leave a Review -->
             <div class="col-md-4 card mb-4 mt-3">
                 <div class="card-body">
                     {% if user.is_authenticated %}
@@ -121,4 +125,8 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/reviews.js' %}"></script>
 {% endblock %}

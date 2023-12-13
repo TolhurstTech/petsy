@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 import json
 import datetime
-from .models import Customer, Product, Order, OrderItem, ShippingAddress
+from .models import Customer, Product, Order, OrderItem, ShippingAddress, Review
 from .forms import ReviewForm
 
 
@@ -101,7 +101,7 @@ def product_detail(request, slug):
             request, messages.SUCCESS,
             'Review submitted and awaiting approval'
         )
-        
+
     # Create customer and cart
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -206,3 +206,26 @@ def processOrder(request):
         print('User is not logged in')
 
     return JsonResponse('Payment Complete', safe=False)
+
+def review_edit(request, slug, review_id):
+    ''' 
+    View to edit reviews
+    '''
+
+    if request.method == "POST":
+
+        queryset = Product.objects.filter(draft=1)
+        product = get_object_or_404(queryset, slug=slug)
+        review = get_object_or_404(Review, pk=review_id)
+        review_form = ReviewForm(data=request.POST, instance=review)
+
+        if review_form.is_valid() and review.author == request.user:
+            review = review_form.save(commit=False)
+            review.product = product
+            review.approved = False
+            review.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_messages(request, messages.ERROR, 'Error updating comment!')
+
+        return HttpResponseRedirect(reverse('product_detail', args=[slug]))

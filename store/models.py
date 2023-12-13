@@ -40,7 +40,6 @@ class Product(models.Model):
         return f"Product: {self.name}"
 
     
-
 RATING = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5))
 
 class Review(models.Model):
@@ -93,7 +92,6 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
-
 
     @property
     def get_total(self):
