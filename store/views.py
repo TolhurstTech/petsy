@@ -32,6 +32,39 @@ class ProductList(generic.ListView):
             context['cartItems'] = ['get_cart_items']
         return context
 
+def cart(request):
+    '''
+    Fetches or creates a single :model: `Order` instance for the current customer dynamically
+    by logged in status and sets it's items before rendering it 
+
+    **Context**
+
+    ``items``
+        All items with this order ID to be attached to the order
+
+    ``order``
+        The users current order/open cart object
+
+    :template:`store/cart.html`
+    '''
+
+    # Quick way to send cart total to the template for the navbar
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    context = {
+        'items' : items,
+        'order' : order,
+        'cartItems': cartItems
+    }
+    return render(request, 'store/cart.html', context)
 
 def product_detail(request, slug):
     """
@@ -67,40 +100,6 @@ def product_detail(request, slug):
          "cartItems": cartItems
         },
     )
-
-def cart(request):
-    '''
-    Fetches or creates a single :model: `Order` instance for the current customer dynamically
-    by logged in status and sets it's items before rendering it 
-
-    **Context**
-
-    ``items``
-        All items with this order ID to be attached to the order
-
-    ``order``
-        The users current order/open cart object
-
-    :template:`store/cart.html`
-    '''
-
-    # Quick way to send cart total to the template for the navbar
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        items = []
-        order = {'get_cart_total':0, 'get_cart_items':0}
-        cartItems = order['get_cart_items']
-
-    context = {
-        'items' : items,
-        'order' : order,
-        'cartItems': cartItems
-    }
-    return render(request, 'store/cart.html', context)
 
 def checkout(request):
     if request.user.is_authenticated:
