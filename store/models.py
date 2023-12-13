@@ -7,7 +7,7 @@ from cloudinary.models import CloudinaryField
 class Customer(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
+    email = models.EmailField()
 
     def __str__(self):
         return self.name
@@ -36,12 +36,26 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+RATING = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5))
+
+class Review(models.Model):
+    product = models.ForeignKey(
+        Product, 
+        on_delete=models.CASCADE, 
+        related_name="product_reviews"
+    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
+    ratings = models.IntegerField(choices=RATING, default=3)
+    content = models.TextField()
+    approved = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+
 
 class Order(models.Model):
     '''
     Creates and stores an order related to :modle: `store.Customer`
     '''
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True, related_name="customer")
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=100, null=True)
@@ -63,8 +77,8 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True, related_name="order_items")
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True, related_name="order")
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -79,8 +93,8 @@ class OrderItem(models.Model):
 
 
 class ShippingAddress(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, related_name="shipping_addresses")
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, related_name="ship_to")
     address = models.CharField(max_length=200, null=False)
     city = models.CharField(max_length=200, null=False)
     county = models.CharField(max_length=200, null=False)
@@ -89,8 +103,5 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address
-    
-    
 
-    
-    
+
