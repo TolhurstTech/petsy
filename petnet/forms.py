@@ -2,6 +2,7 @@ from allauth.account.forms import SignupForm
 from django import forms
 from django.contrib.auth.models import User
 
+
 # Override allauth signup form to include names for customer model
 class MyCustomSignupForm(SignupForm):
     class Meta:

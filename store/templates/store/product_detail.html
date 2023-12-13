@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block search %}
@@ -64,8 +65,8 @@
         <hr>
 
         <!-- Displaying Reviews -->
-        <div class="row">
-            <div class="col-md-8 card mb-4 mt-3">
+        <div class="row justify-content-between ps-4">
+            <div class="col-md-5 card mb-4 mt-3">
                 <h3>Reviews:</h3>
                 <div class="card-body">
                     <!-- Iterate through reviews -->
@@ -96,6 +97,26 @@
                 
                 </div>
             </div>
+
+             <!-- Creating New Comments -->
+            <div class="col-md-4 card mb-4 mt-3">
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+                        <h3>Leave a review:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form id="reviewForm" method="post"
+                            style="margin-top: 1.3em;">
+                            {{ review_form | crispy }}
+                            {% csrf_token %}
+                            <button id="submitButton" type="submit"
+                                class="btn pnk-btn btn-lg">Submit</button>
+                        </form>
+                    {% else %}
+                        <p>Log in to leave a review</p>
+                    {% endif %}
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

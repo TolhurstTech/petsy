@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 import json
 import datetime
 from .models import Customer, Product, Order, OrderItem, ShippingAddress
+from .forms import ReviewForm
 
 
 # Create your views here.
@@ -82,9 +83,25 @@ def product_detail(request, slug):
 
     queryset = Product.objects.filter(draft=1)
     product = get_object_or_404(queryset, slug=slug)
+
+    # Reviews
     reviews = product.product_reviews.all().order_by("-created_on")
     review_count = product.product_reviews.filter(approved=True).count()
+    review_form = ReviewForm()
 
+    # Review form logic
+    if request.method == "POST":
+        review_form = ReviewForm(data=request.POST)
+    if review_form.is_valid():
+        review = review_form.save(commit=False)
+        review.author = request.user
+        review.product = product
+        review.save()
+        messages.add_message(
+            request, messages.SUCCESS,
+            'Review submitted and awaiting approval'
+        )
+        
     # Create customer and cart
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -103,6 +120,7 @@ def product_detail(request, slug):
          "cartItems": cartItems,
          "reviews": reviews,
          "review_count": review_count,
+         "review_form": review_form,
         },
     )
 
