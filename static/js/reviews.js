@@ -1,5 +1,5 @@
 const editButtons = document.getElementsByClassName("btn-edit");
-const reviewRatingData = document.querySelector("#rating");
+
 const reviewRating = document.getElementById('id_ratings')
 const reviewText = document.getElementById("id_content");
 const reviewForm = document.getElementById("reviewForm");
@@ -23,7 +23,9 @@ for (let button of editButtons) {
   button.addEventListener("click", (e) => {
     let reviewId = e.target.getAttribute("data-review_id");
     let reviewContent = document.getElementById(`review${reviewId}`).innerText;
-    let reviewRatingContent = reviewRatingData.dataset.rating;
+    let reviewRatingData = document.querySelector("#rating");
+    
+    reviewRatingContent = reviewRatingData.dataset.rating;
     reviewText.value = reviewContent;
     reviewRating.selectedIndex = (reviewRatingContent - 1);
     submitButton.innerText = "Update";
