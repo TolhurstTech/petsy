@@ -90,7 +90,7 @@
                             </div>
                             {% if not review.approved and review.author == user %}
                                 <p class="approval">
-                                    This comment is awaiting approval
+                                    This review is awaiting approval
                                 </p>
                             {% endif %}
                             {% if user.is_authenticated and review.author == user %}
