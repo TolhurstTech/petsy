@@ -12,7 +12,7 @@
     <div class="row justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6 box-element">
             <div class="row ">
-                <div class="col-md-8 mt-3">
+                <div class="col mt-3">
                   <h3>{% trans "Sign In" %}</h3>
 
                   <p>{% blocktrans %}Welcome back friend! If you don't already have a Petsy account, then please
@@ -21,7 +21,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8 mt-3">
+                <div class="col mt-3">
                     <form class="login" method="POST" action="{% url 'account_login' %}">
                         {% csrf_token %}
                         {{ form | crispy }}
