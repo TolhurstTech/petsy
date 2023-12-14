@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block search %}
@@ -10,7 +11,15 @@
             </div>
             <div class="search-box vstack col-4">
                 <p>Looking for something? Let me fetch that for you!</p>
-                <input type="text" placeholder="Go Fetch">
+                <div class="search-bg">
+                    <div id="search-container">
+                        <form id="search-form">
+                           
+                            <input type="text" placeholder="Go Fetch">
+                            
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
