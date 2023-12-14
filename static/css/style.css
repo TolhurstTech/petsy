@@ -63,6 +63,28 @@ main {
     font-size: 1.2rem;
 }
 
+.green-btn {
+    border-radius: 500px;
+    border-color: var(--dark-green);
+    border-width: 2px;
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    padding: 0.375rem 0.75rem;
+    text-wrap: nowrap;
+    font-size: 1.2rem;
+}
+
+.green-btn:hover {
+    border-radius: 500px;
+    border-color: var(--light-green);
+    border-width: 2px;
+    background-color: var(--dark-green);
+    color: var(--white);
+    padding: 0.375rem 0.75rem;
+    text-wrap: nowrap;
+    font-size: 1.2rem;
+}
+
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Navbar Styles **/
 .navbar {
     background-color: var(--light-pink);
@@ -240,6 +262,16 @@ footer {
 .card {
     border-color: var(--dark-green);
     border-width: 2px;
+}
+
+.post-link {
+    text-decoration: none;
+    color: var(--dark-green);
+}
+
+.post-link:hover {
+    color: var(--light-green);
+    text-shadow: -1px 0 var(--dark-green), 0 1px var(--dark-green), 1px 0 var(--dark-green), 0 -1px var(--dark-green);
 }
 /** ------------------------------------------------------------------------------------------------------------------------------------------------ Review styles **/
 
