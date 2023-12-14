@@ -294,4 +294,53 @@ footer {
     width: auto;
     vertical-align: middle;
   }
-  
+
+/** --------------------------------------------------------------------------- Media queries based on bootstrap breakpoints **/
+/** xs **/
+@media only screen and (min-width: 320px) {
+    .main-wrapper {
+        min-height: 100vh;
+        background:linear-gradient(-180deg, var(--light-pink) 270px, var(--white) 0%);
+        filter: drop-shadow(0px 0px 50px #535353);
+        padding: 0;
+        padding-bottom: 3rem;
+    }
+}
+
+/** sm **/
+@media only screen and (min-width: 576px) {
+    .main-wrapper {
+        min-height: 100vh;
+        background:linear-gradient(-180deg, var(--light-pink) 300px, var(--white) 0%);
+        filter: drop-shadow(0px 0px 50px #535353);
+        padding: 0;
+        padding-bottom: 3rem;
+    }
+}
+
+/** md **/
+@media only screen and (min-width: 768px) {
+
+}
+
+/** lg **/
+@media only screen and (min-width: 992px) {
+    .main-wrapper {
+        min-height: 100vh;
+        background:linear-gradient(-180deg, var(--light-pink) 300px, var(--white) 0%);
+        filter: drop-shadow(0px 0px 50px #535353);
+        padding: 0;
+        padding-bottom: 3rem;
+    }
+}
+
+/** xl **/
+@media only screen and (min-width: 1200px) {
+    .main-wrapper {
+        min-height: 100vh;
+        background:linear-gradient(-180deg, var(--light-pink) 350px, var(--white) 0%);
+        filter: drop-shadow(0px 0px 50px #535353);
+        padding: 0;
+        padding-bottom: 3rem;
+    }
+}

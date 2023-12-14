@@ -224,9 +224,9 @@ def review_edit(request, slug, review_id):
             review.product = product
             review.approved = False
             review.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
         else:
-            messages.add_messages(request, messages.ERROR, 'Error updating comment!')
+            messages.add_messages(request, messages.ERROR, 'Error updating review!')
 
         return HttpResponseRedirect(reverse('product_detail', args=[slug]))
 
