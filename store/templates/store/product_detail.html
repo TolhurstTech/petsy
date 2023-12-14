@@ -19,12 +19,13 @@
 
 {%block content %}
 
-
+<!-- Display a product -->
 <div class="container">
     <div class="row">
         <div class="col-12">
             <a class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
         </div>
+        <!-- Product Image -->
         <div class="row">
             <div class="col-4 mt-3">
                 {% if "placeholder" in product.featured_image.url %}
@@ -36,6 +37,7 @@
                 {% endif %}
             
             </div>
+            <!-- Product details -->
             <div class="col-8">
                 <h2>{{ product.name }}</h2>
                 {{ product.content | safe }}
@@ -92,11 +94,13 @@
                                 </p>
                             {% endif %}
                             {% if user.is_authenticated and review.author == user %}
+                                <button class="btn btn-delete"
+                                data-review_id="{{ review.id }}">Delete</button>
+
                                 <button class="btn btn-edit"
                                     data-review_id="{{ review.id }}" id="review{{ review.id }}">Edit</button>
                             {% endif %}
                         </div>
-                    <!-- Our for loop ends here -->
                     {% endfor %}
                 
                 </div>
@@ -123,10 +127,9 @@
 
         </div>
     </div>
-</div>
 
 {% endblock %}
 
 {% block scripts %}
-    <script src="{% static 'js/reviews.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/reviews.js' %}"></script>
 {% endblock %}
