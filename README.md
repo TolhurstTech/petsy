@@ -27,6 +27,18 @@ When generating user stories I identified that the site would need the following
 - Be able to browse all products
 - Be able to view a product's details
 - Responsive mobile first design
+- Displays feedback messages to the user when interacting with the site for logging in, out, registering and making comments etc.
 
 ## UXD
-With the features fleshed out I started thinking about the design. I was immediately drawn to light pastel pink and mint green colours for my friend. I used [coloors](https://coolors.co/) to generate a colour palette with those colours in mind. 
+With the features fleshed out I started working on the design. I was immediately drawn to light pastel pink and mint green colours for my friend. I used [coloors](https://coolors.co/) to generate a colour palette with those colours in mind. 
+
+![screenshot](documentation/colour_palette.png)
+
+From here I built templates to lay out each page. I code better from design templates so built some semi-detailed wire frames for me to work from. The designs were built with mobile first in mind. I tried to do one for each page I could think of that I might need.
+
+### Store / Home Page Frames
+![screenshot](documentation/petsy-wireframes-home.png)
+
+### Product Detail Page
+![screenshot](documentation/petsy-wireframes-product-detail.png)
+
