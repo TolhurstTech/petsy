@@ -61,7 +61,7 @@
 
                         <a class="navbar-brand" href="{% url 'store' %}">Petsy</a>
 
-                        <div class="col-4 col-md-8 col-xl-9 my-2 my-lg-0 basket-alignment">
+                        <div class="col-4 col-md-{% if user.is_authenticated %}6{% else %}8{% endif %} col-xl-9 my-2 my-lg-0 basket-alignment">
                             <a href="{% url 'cart' %}">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
@@ -72,7 +72,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
-                        <div class="collapse navbar-collapse justify-content-end col-xl-1" id="navbarNavAltMarkup">
+                        <div class="collapse navbar-collapse justify-content-end {% if user.is_authenticated %}col-lg-4{% endif %} col-xl-1" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                                 <a class="nav-link {% if request.path == store_url %}
                                                             active" aria-current="page"
