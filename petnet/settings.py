@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # Can as the variable to deployed environment to test bugs 
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-tolhursttec-petemporium-lt92ujnynl3.ws-eu106.gitpod.io', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-tolhursttec-petemporium-lt92ujnynl3.ws-eu106.gitpod.io', '8000-tolhursttec-petemporium-lt92ujnynl3.ws-eu107.gitpod.io', '.herokuapp.com']
 
 
 # Application definition
