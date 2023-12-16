@@ -14,8 +14,8 @@ class Customer(models.Model):
 
 
 DRAFT = ((0, "Yes"), (1, "No"))
-FOR_SALE =((0, "For Sale"),(1, "Sold Out"))
-CATEGORY =((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"),(6, "Dog Bowls"))
+FOR_SALE = ((0, "For Sale"),(1, "Sold Out"))
+CATEGORY = ((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"),(6, "Dog Bowls"))
 
 class Product(models.Model):
     '''
@@ -113,5 +113,3 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address
-
-

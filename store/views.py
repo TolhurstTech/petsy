@@ -167,9 +167,6 @@ def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
     action = data['action']
-
-    print('Action: ', action)
-    print('productId: ', productId)
     
     # Get the customer
     customer = request.user.customer
@@ -190,7 +187,7 @@ def updateItem(request):
     # Save the item
     orderItem.save()
 
-    # Delete  item if total is zero
+    # Delete item if total is zero
     if orderItem.quantity <= 0:
         # Give the user a prompt here to check if they would like to delete it
         orderItem.delete()
@@ -201,7 +198,7 @@ def updateItem(request):
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
     data =json.loads(request.body)
-    print(data)
+
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -223,6 +220,7 @@ def processOrder(request):
         )
 
     else:
+        # Implement guest cart order processing here
         print('User is not logged in')
 
     return JsonResponse('Payment Complete', safe=False)
@@ -252,7 +250,7 @@ def review_edit(request, slug, review_id):
 
 def review_delete(request, slug, review_id):
     """
-    view to delete comment
+    View to delete review
     """
     queryset = Product.objects.filter(draft=1)
     product = get_object_or_404(queryset, slug=slug)
