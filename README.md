@@ -46,6 +46,13 @@ Will look basically the same on all views
 
 ## Account Pages - Login, Logout, Sign Up etc.
 ![screenshot](documentation/petsy-wireframes-account-pages.png)
+Very similar on all views again
 
 ## Cart Page
 ![screenshot](documentation/petsy-wireframes-cart.png)
+Small difference on Small screens. Checkout is basically the same as this so with time constraints I stopped here.
+
+## Database Design and Django Models
+Now having a good idea of the lay out of the app, pages and data to be collected from different users I moved on to planning my database models. I was going to need a few. I sketched out some ERDs on paper before converting them digitally.
+
+
