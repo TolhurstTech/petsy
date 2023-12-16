@@ -1,16 +1,12 @@
 var form = document.getElementById('form')
 csrftoken = form.getElementsByTagName("input")[0].value
 
-console.log('Total: ', total)
-
 // Event Listeners
 
 // Catch the shipping details form submission and handle it
 form.addEventListener('submit', function(e){
     // Prevent the default
     e.preventDefault()
-    // Testing
-    console.log('Form submitted')
     // Hide the shipping form submit button
     document.getElementById('form-button').classList.add('hidden')
     // Show payment options section ready to pay
@@ -23,7 +19,6 @@ document.getElementById('make-payment').addEventListener('click', function(e){
 
 // Logic to submit form
 function submitFormData() {
-    console.log('Payment button clicked')
 
     var userFormData = {
         'name':null,
@@ -38,7 +33,6 @@ function submitFormData() {
         'postcode': form.postcode.value,
         'country': form.country.value,
     }
-    console.log(shippingInfo.address)
 
     if (user == 'AnonymousUser'){
         userFormData.name = form.name.value
@@ -59,10 +53,7 @@ function submitFormData() {
     .then((response) => response.json())
 
     .then((data) => {
-        console.log('Success:', data);
         alert('Transaction completed');
         window.location.href = "/"
     })
-
-
 }
