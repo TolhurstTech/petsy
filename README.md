@@ -41,24 +41,24 @@ With the features fleshed out I started working on the design. I was immediately
 From here I built templates to lay out each page. I code better from design templates so built some semi-detailed wire frames for me to work from. The designs were built with mobile first in mind. I tried to do one for each page I could think of that I might need.
 
 ### Store / Home Page Frames
-![screenshot](documentation/petsy-wireframes-home.png)
+![diagram](documentation/petsy-wireframes-home.png)
 Products to display in a single column on small screens. Navbar to become a an icon with a dropdown on medium screens or smaller
 
 ### Product Detail Page
-![screenshot](documentation/petsy-wireframes-product-detail.png)
+![diagram](documentation/petsy-wireframes-product-detail.png)
 Will look basically the same on all views
 
 ## Account Pages - Login, Logout, Sign Up etc.
-![screenshot](documentation/petsy-wireframes-account-pages.png)
+![diagram](documentation/petsy-wireframes-account-pages.png)
 Very similar on all views again
 
 ## Cart Page
-![screenshot](documentation/petsy-wireframes-cart.png)
+![diagram](documentation/petsy-wireframes-cart.png)
 Small difference on Small screens. Checkout is basically the same as this so with time constraints I stopped here.
 
 ## Database Design and Django Models
 Now having a good idea of the lay out of the app, pages and data to be collected from different users I moved on to planning my database models. I was going to need a few. I sketched out some ERDs on paper before converting them digitally.
 
 ### ERD
-
+![diagram](documentation/petsy-erd.png)
 
