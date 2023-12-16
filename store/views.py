@@ -34,6 +34,10 @@ class ProductList(generic.ListView):
             order = {'get_cart_total':0, 'get_cart_items':0}
             cartItems = order['get_cart_items']
             context['cartItems'] = cartItems
+            messages.add_message(
+            self.request, messages.ERROR,
+            'Login to add items to cart'
+        )
         return context
 
 def cart(request):
@@ -49,6 +53,9 @@ def cart(request):
     ``order``
         The users current order/open cart object
 
+    ``cartItems``
+        Total number of cart items for the basket total
+
     :template:`store/cart.html`
     '''
 
@@ -59,6 +66,7 @@ def cart(request):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
+        # Spoof for guest cart
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
