@@ -38,7 +38,14 @@ From here I built templates to lay out each page. I code better from design temp
 
 ### Store / Home Page Frames
 ![screenshot](documentation/petsy-wireframes-home.png)
+Products to display in a single column on small screens. Navbar to become a an icon with a dropdown on medium screens or smaller
 
 ### Product Detail Page
 ![screenshot](documentation/petsy-wireframes-product-detail.png)
+Will look basically the same on all views
 
+## Account Pages - Login, Logout, Sign Up etc.
+![screenshot](documentation/petsy-wireframes-account-pages)
+
+## Cart Page
+![screenshot](documentation/petsy-wireframes-cart)
