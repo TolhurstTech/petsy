@@ -30,7 +30,10 @@ class ProductList(generic.ListView):
             context['cartItems'] = order.get_cart_items
         else:
             context = super(ProductList,self).get_context_data(**kwargs)
-            context['cartItems'] = ['get_cart_items']
+            items = []
+            order = {'get_cart_total':0, 'get_cart_items':0}
+            cartItems = order['get_cart_items']
+            context['cartItems'] = cartItems
         return context
 
 def cart(request):
