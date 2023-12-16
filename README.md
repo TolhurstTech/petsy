@@ -45,7 +45,7 @@ Products to display in a single column on small screens. Navbar to become a an i
 Will look basically the same on all views
 
 ## Account Pages - Login, Logout, Sign Up etc.
-![screenshot](documentation/petsy-wireframes-account-pages)
+![screenshot](documentation/petsy-wireframes-account-pages.png)
 
 ## Cart Page
-![screenshot](documentation/petsy-wireframes-cart)
+![screenshot](documentation/petsy-wireframes-cart.png)
