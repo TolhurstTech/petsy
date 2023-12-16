@@ -1,4 +1,6 @@
 # [Petsy](https://pet-emporium-f2ff81a3d126.herokuapp.com/)
+![screenshot](petsy-home-mobile.png)
+![screenshot](petsy-home.png)
 
 ## About Petsy
 Petsy is my final capstone project for the Fullstack Developer Bootcamp course at code Institute. For this project we were set the task of creating a responsive, full stack web app using an MVC framework with the following specifications:
