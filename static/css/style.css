@@ -328,7 +328,9 @@ footer {
 
 /** md **/
 @media only screen and (min-width: 768px) {
-
+    #search-form > input {
+        max-width: 200px;
+    }
 }
 
 /** lg **/
