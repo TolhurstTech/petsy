@@ -3,12 +3,6 @@ csrftoken = form.getElementsByTagName("input")[0].value
 
 console.log('Total: ', total)
 
-// Hide name and email fields if user is logged in
-if (user != 'AnonynousUser'){
-    
-    document.getElementById('user-info').innerHTML = ''
-}
-
 // Event Listeners
 
 // Catch the shipping details form submission and handle it
