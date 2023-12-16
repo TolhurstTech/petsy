@@ -48,8 +48,13 @@
                     </div>
 
                     <div class="col col-md-5">
-                        <button data-product={{product.id}} data-action=add 
+                        <!-- Prompt user to log in to user cart functions -->
+                        {% if user.is_authenticated %}
+                            <button data-product={{product.id}} data-action=add 
                             class="btn pnk-btn update-cart">Add to Cart</button>
+                        {% else %}
+                            <a href={% url 'account_login' %} class="green-btn">Login to +</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
