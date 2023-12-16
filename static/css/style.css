@@ -65,11 +65,13 @@ main {
     border-radius: 500px;
     border-color: var(--dark-green);
     border-width: 2px;
+    border-style: solid;
     background-color: var(--light-green);
     color: var(--dark-green);
     padding: 0.375rem 0.75rem;
     text-wrap: nowrap;
     font-size: 1.2rem;
+    text-decoration: none;
 }
 
 .green-btn:hover {
