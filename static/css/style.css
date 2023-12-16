@@ -6,9 +6,7 @@
     --white: #fdfdfd;
     --fa-style-family: "Font Awesome 6 Pro";
     --fa-style: 400;
-    
     --fa-primary-color: green;
-   
   }
 
 * {
@@ -304,6 +302,10 @@ footer {
         filter: drop-shadow(0px 0px 50px #535353);
         padding: 0;
         padding-bottom: 3rem;
+    }
+
+    #search-form > input {
+        max-width: 140px;
     }
 }
 
