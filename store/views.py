@@ -20,11 +20,13 @@ class ProductList(generic.ListView):
     def get_context_data(self,**kwargs):
         # Check if guest cart
         if self.request.user.is_authenticated:
+
             # Get customer or create it if a new user
             try:
                 customer = customer = self.request.user.customer
             except AttributeError:
                 customer, created = Customer.objects.get_or_create(user=self.request.user, name=self.request.user.first_name + " " + self.request.user.last_name, email=self.request.user.email)
+            
             order, created = Order.objects.get_or_create(customer=customer, complete=False)
             context = super(ProductList,self).get_context_data(**kwargs)
             context['cartItems'] = order.get_cart_items
@@ -34,10 +36,7 @@ class ProductList(generic.ListView):
             order = {'get_cart_total':0, 'get_cart_items':0}
             cartItems = order['get_cart_items']
             context['cartItems'] = cartItems
-            messages.add_message(
-            self.request, messages.ERROR,
-            'Login to add items to cart'
-        )
+            
         return context
 
 def cart(request):
@@ -87,6 +86,14 @@ def product_detail(request, slug):
     ``post``
         An instance of :model:`store.Product`.
 
+    ``cartItems``
+
+    ``reviews``
+    
+    ``review_count``
+
+    ``review_form``
+
     **Template:**
 
     :template:`store/product_detail.html`
@@ -120,6 +127,7 @@ def product_detail(request, slug):
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
+        # spoof for guest
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
@@ -175,6 +183,7 @@ def updateItem(request):
     # Update item quantity
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
+            
     elif action == 'remove':
         orderItem.quantity = (orderItem.quantity - 1)
     

@@ -61,8 +61,12 @@
                                 <hr>
                                 <div class="row justify-content-center">
                                     <div class="col-6 col-md-8 col-lg-4">
-                                        <button data-product={{product.id}} data-action=add 
-                                        class="btn add-btn pnk-btn update-cart">Add to Cart</button>
+                                        {% if user.is_authenticated %}
+                                            <button data-product={{product.id}} data-action=add 
+                                            class="btn add-btn pnk-btn update-cart">Add to Cart</button>
+                                        {% else %}
+                                            <a href={% url 'account_login' %} class="green-btn">Login to +</a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
