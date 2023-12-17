@@ -22,7 +22,8 @@ function submitFormData() {
     // User form
     var userFormData = {
         "email":null,
-        "name":null
+        "name":null,
+        "total":total
     };
 
     // Shipping address form

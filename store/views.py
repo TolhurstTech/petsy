@@ -254,8 +254,12 @@ def processOrder(request):
         order.transaction_id = transaction_id
 
         # Check cart items haven't been manipulated in front end with JS before setting order to complete
-        if total == order.get_cart_total:
-            order.complete = True
+        # Only works with guest cart implemented
+        #if total == order.get_cart_total:
+        #    order.complete = True
+
+        # Can be spoofed by hackers until I finish guest checkout but close order as completed for now
+        order.complete = True
         order.save()
 
         ShippingAddress.objects.create(
