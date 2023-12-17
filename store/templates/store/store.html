@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-8 col-md-6 col-lg-4">
             <div class="puppy-head">
-                <img src="{% static 'images/puppyhead.png' %}" class="responsive-img">
+                <img src="{% static 'images/puppyhead.png' %}" class="responsive-img" alt="Animated image of a cute dog mascot sat above the search box to fetch your search queries for you">
             </div>
             <div class="search-box vstack col-4">
                 <p>Looking for something? Let me fetch that for you!</p>
@@ -42,18 +42,19 @@
                             <div class="card-body">
                                 <div class="image-container">
                                     <a href="{% url 'product_detail' product.slug %}" class="post-link">
-                                    {% if "placeholder" in product.featured_image.url %}
-                                        <img class="card-img-top" src="{% static 'images/placeholder.png' %}"
-                                            alt="placeholder image">
-                                    {% else %}
-                                        <img class="card-img-top" src=" {{ product.featured_image.url }}"
-                                            alt="{{ product.name }}">
-                                    {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">In: {{ product.category }}</p>
-                                    </div>
+                                        {% if "placeholder" in product.featured_image.url %}
+                                            <img class="card-img-top" src="{% static 'images/placeholder.png' %}"
+                                                alt="placeholder image">
+                                        {% else %}
+                                            <img class="card-img-top" src=" {{ product.featured_image.url }}"
+                                                alt="{{ product.name }}">
+                                        {% endif %}
+                                        <div class="image-flash">
+                                            <p class="author">In: {{ product.category }}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                                
+                                <a href="{% url 'product_detail' product.slug %}" class="post-link">
                                     <h2 class="card-title">{{ product.name }}</h2>
                                     <p>£{{ product.price | floatformat:2 }}</p>
                                 </a>

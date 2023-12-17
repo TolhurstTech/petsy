@@ -27,7 +27,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <script type="text/javascript">
+    <script>
         var user = '{{request.user}}'
 
         function getToken(name) {
@@ -183,7 +183,7 @@
     </div>
     <script src="https://kit.fontawesome.com/7b6b946553.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
     {% block scripts %}
     {% endblock %}
     
