@@ -9,10 +9,13 @@ I used W3C to validate my CSS and fix any conformity errors.
 I validated all my JS scripts with JSLint. A coupld of minor errors were left as I didn't put some logic inside functions leaving some globale variables and didn't quite have time to fix that at this stage.
 
 ![screenshot](documentation/petsy-cartjs-validation.png)
-Cart JS validation.
+### Cart JS validation.
 
 ![screenshot](documentation/petsy-checkoutjs-validation.png)
-Checkout JS validation.
+### Checkout JS validation.
 
 ![screenshot](documentation/petsy-reviewjs-validation.png)
-Review JS validation.
+### Review JS validation.
+
+## W3C HTML Validation
+
