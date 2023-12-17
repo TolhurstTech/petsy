@@ -6,7 +6,7 @@
 I used W3C to validate my CSS and fix any conformity errors.
 
 ## JSLint JavaScript Validation
-I validated all my JS scripts with JSLint. A coupld of minor errors were left as I didn't put some logic inside functions leaving some globale variables and didn't quite have time to fix that at this stage.
+I validated all my JS scripts with JSLint. A couple of minor errors were left as I didn't put some logic inside functions leaving some global variables and didn't quite have time to fix that at this stage.
 
 ![screenshot](documentation/petsy-cartjs-validation.png)
 ### Cart JS validation.
@@ -26,3 +26,7 @@ I validated all my JS scripts with JSLint. A coupld of minor errors were left as
 
 ![screenshot](documentation/logged-out-cart-html-validation.png)
 ### Cart
+
+![screenshot](documentation/loggedout-checkout-validation.png)
+### Checkout
+
