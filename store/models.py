@@ -4,9 +4,15 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
+
 class Customer(models.Model):
     ''' Creates a customer. '''
-    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField()
 
@@ -15,8 +21,17 @@ class Customer(models.Model):
 
 
 DRAFT = ((0, "Yes"), (1, "No"))
-FOR_SALE = ((0, "For Sale"),(1, "Sold Out"))
-CATEGORY = ((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"),(6, "Dog Bowls"))
+FOR_SALE = ((0, "For Sale"), (1, "Sold Out"))
+CATEGORY = (
+    (0, "None"),
+    (1, "Collars"),
+    (2, "Leads"),
+    (3, "Clothes"),
+    (4, "Dog Treats"),
+    (5, "Dog Food"),
+    (6, "Dog Bowls")
+)
+
 
 class Product(models.Model):
     ''' Stores a single product.'''
@@ -31,24 +46,29 @@ class Product(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     draft = models.IntegerField(choices=DRAFT, default=0)
-    
+
     class Meta:
         ordering = ["-created_on"]
-    
+
     def __str__(self):
         return f"Product: {self.name}"
 
-    
+
 RATING = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5))
+
 
 class Review(models.Model):
     '''Stores :model:`auth.User` reviews for a :model:`store.Product`.'''
     product = models.ForeignKey(
-        Product, 
-        on_delete=models.CASCADE, 
+        Product,
+        on_delete=models.CASCADE,
         related_name="product_reviews"
     )
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="reviewer"
+    )
     ratings = models.IntegerField(choices=RATING, default=3)
     content = models.TextField()
     approved = models.BooleanField(default=False)
@@ -59,12 +79,16 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Review | {self.content} by {self.author}"
-    
 
 
 class Order(models.Model):
     ''' Creates and stores an order for a :model: `store.Customer`.'''
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    customer = models.ForeignKey(
+        Customer,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=100, null=True)
@@ -80,7 +104,6 @@ class Order(models.Model):
         return total
 
     @property
-    
     def get_cart_items(self):
         ''' Gets the total number of items in the order. '''
         orderitems = self.orderitem_set.all()
@@ -89,9 +112,22 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    ''' Builds and stores an order item linking a :model:`store.Product` to a :model:`store.Order`'''
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
+    '''
+    Builds and stores an order item linking
+    a :model:`store.Product` to a :model:`store.Order`
+    '''
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    order = models.ForeignKey(
+        Order,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -106,8 +142,15 @@ class OrderItem(models.Model):
 
 
 class ShippingAddress(models.Model):
-    ''' Stores shipping addresses related to :model:`store.Customer` and :model:`store.Order`'''
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    '''
+    Stores shipping addresses related to
+    :model:`store.Customer` and :model:`store.Order`
+    '''
+    customer = models.ForeignKey(
+        Customer,
+        on_delete=models.SET_NULL,
+        null=True
+    )
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     address = models.CharField(max_length=200, null=False)
     city = models.CharField(max_length=200, null=False)
