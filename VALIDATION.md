@@ -53,5 +53,23 @@ I found some errors in different states and cleaned them all up.
 ## Python Validation
 All Python files I edited or created were linted with CI Python linter.
 
+### Admin.py
+![screenshot](documentation/admin-linted.png)
 
+### Models.py
+![screenshot](documentation/models-linted.png)
 
+### Views.py
+![screenshot](documentation/views-linted.png)
+
+### Project Forms.py
+![screenshot](documentation/petsyforms-linted.png)
+
+### Project Urls.py
+![screenshot](documentation/petsyurls-linted.png)
+
+### Store Forms.py
+![screenshot](documentation/storeforms-linted.png)
+
+### Store Urls.py
+![screenshot](documentation/storeurls-linted.png)
