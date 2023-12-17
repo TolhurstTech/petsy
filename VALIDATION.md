@@ -16,9 +16,9 @@ I validated all my JS scripts with JSLint. A couple of minor errors were left as
 ### Review JS validation.
 ![screenshot](documentation/petsy-reviewjs-validation.png)
 
-
 ## W3C HTML Validation
 Validated the html both in logged in and logged out states as the html is slightly different for both.
+I also validated the html with a full basket to test for errors there, too, and found some that don't show on an empty basket.
 I found some errors in different states and cleaned them all up.
 ### Home/Store - logged out
 ![screenshot](documentation/home-html-validation.png)
@@ -33,15 +33,17 @@ I found some errors in different states and cleaned them all up.
 ![screenshot](documentation/loggedout-checkout-validation.png)
 
 ### Home/Store - logged in
-![screenshot](documentation/home-html-validation.png)
+![screenshot](documentation/loggedin-home.png)
 
 ### Product - logged in
-![screenshot](documentation/product-validation.png)
+![screenshot](documentation/logged-in-product.png)
 
 ### Cart - logged in
-![screenshot](documentation/logged-out-cart-html-validation.png)
+![screenshot](documentation/loggedin-cart-items.png)
 
 ### Checkout - logged in
-![screenshot](documentation/loggedout-checkout-validation.png)
+![screenshot](documentation/loggedin-checkout-with-items.png)
+
+## Python Validation
 
 
