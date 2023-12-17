@@ -5,6 +5,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Customer(models.Model):
+    ''' Creates a customer. '''
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField()
@@ -18,9 +19,7 @@ FOR_SALE = ((0, "For Sale"),(1, "Sold Out"))
 CATEGORY = ((0, "None"),(1, "Collars"),(2, "Leads"),(3, "Clothes"),(4, "Dog Treats"), (5, "Dog Food"),(6, "Dog Bowls"))
 
 class Product(models.Model):
-    '''
-    Stores a single product
-    '''
+    ''' Stores a single product.'''
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     category = models.IntegerField(choices=CATEGORY, default=0)
@@ -43,6 +42,7 @@ class Product(models.Model):
 RATING = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5))
 
 class Review(models.Model):
+    '''Stores :model:`auth.User` reviews for a :model:`store.Product`.'''
     product = models.ForeignKey(
         Product, 
         on_delete=models.CASCADE, 
@@ -63,9 +63,7 @@ class Review(models.Model):
 
 
 class Order(models.Model):
-    '''
-    Creates and stores an order related to :modle: `store.Customer`
-    '''
+    ''' Creates and stores an order for a :model: `store.Customer`.'''
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
@@ -76,18 +74,22 @@ class Order(models.Model):
 
     @property
     def get_cart_total(self):
+        ''' Sums up the total price of the order items. '''
         orderitems = self.orderitem_set.all()
         total = sum([item.get_total for item in orderitems])
         return total
 
     @property
+    
     def get_cart_items(self):
+        ''' Gets the total number of items in the order. '''
         orderitems = self.orderitem_set.all()
         total = sum([item.quantity for item in orderitems])
         return total
 
 
 class OrderItem(models.Model):
+    ''' Builds and stores an order item linking a :model:`store.Product` to a :model:`store.Order`'''
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
@@ -95,6 +97,7 @@ class OrderItem(models.Model):
 
     @property
     def get_total(self):
+        ''' Sums up the total price of wanted quantity of order item '''
         total = self.product.price * self.quantity
         return total
 
@@ -103,6 +106,7 @@ class OrderItem(models.Model):
 
 
 class ShippingAddress(models.Model):
+    ''' Stores shipping addresses related to :model:`store.Customer` and :model:`store.Order`'''
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     address = models.CharField(max_length=200, null=False)

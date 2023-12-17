@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 # Override allauth signup form to include names for customer model
 class MyCustomSignupForm(SignupForm):
+    ''' Overrides the default allauth signup form to include first and last name.'''
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password')
