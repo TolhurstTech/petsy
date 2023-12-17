@@ -119,23 +119,23 @@ The footer contains links to easily find our social media as is commonly expecte
 
 ## Features - Out of Scope But Planned
 
-## Search Functionality
+### Search Functionality
 So a user can search the catalogue for items they are looking for.
 The search feature was a focal point of the design and functionality but I misjudged the time scale for implementing this part of the app and so it is currently just for show.
 
-## Guest Cart
+### Guest Cart
 Allowing a customer to checkout without registration.
 The code is ready to have guest cart implementation added but had to be spoofed for the current timescale to make sure I hit the project requirements for marking. 
 
-## Payment Gateway
+### Payment Gateway
 Allow a user to pay for their order.
 The app is ready for payment gateway implementation and will eventually have paypal cart implemented. It was again out of scope for the requirements and time limits on this project.
 
-## Order Management
+### Order Management
 Allow the user to view their past orders and their status.
 This was also a feature planned from the start but was cut short by time constraints, too. The order page is set to be built after marking.
 
-## Categories
+### Categories
 Products are already stored within categories. Having category options for browsing on the store page was a planned feature. This would allwo users to browse by category opening up pages with products listed within that category to make browsing a little easier.
 
 # [Testing](TESTING.md)
