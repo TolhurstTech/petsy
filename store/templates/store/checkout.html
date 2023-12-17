@@ -68,7 +68,7 @@
                 {% for item in items %}
                 <div class="cart-row">
                     <div class="flex-2">
-                        <img class="row-image" src="{{ item.product.featured_image.url }}">
+                        <img class="row-image" src="{{ item.product.featured_image.url }}" alt="Picture of {{ item.product.name }}">
                     </div>
                     <div class="flex-2"><p>{{ item.product.name }}</p></div>
                     <div class="flex-1"><p>£{{ item.product.price|floatformat:2}}</p></div>
