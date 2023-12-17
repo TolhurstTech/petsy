@@ -18,4 +18,11 @@ I validated all my JS scripts with JSLint. A coupld of minor errors were left as
 ### Review JS validation.
 
 ## W3C HTML Validation
+![screenshot](documentation/home-html-validation.png)
+### Home/Store
 
+![screenshot](documentation/product-validation.png)
+### Product
+
+![screenshot](documentation/logged-out-cart-html-validation.png)
+### Cart
