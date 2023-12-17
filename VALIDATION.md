@@ -44,6 +44,14 @@ I found some errors in different states and cleaned them all up.
 ### Checkout - logged in
 ![screenshot](documentation/loggedin-checkout-with-items.png)
 
+### Sign Page
+![screenshot](documentation/sign-in-validation.png)
+
+### Register Page
+![screenshot](documentation/register-page-validation.png)
+
 ## Python Validation
+All Python files I edited or created were linted with CI Python linter.
+
 
 
