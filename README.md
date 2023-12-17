@@ -33,8 +33,9 @@ When generating user stories I identified that the site would need the following
 - Displays feedback messages to the user when interacting with the site for logging in, out, registering and making comments etc.
 
 ## UXD
-With the features fleshed out I started working on the design. I was immediately drawn to light pastel pink and mint green colours for my friend. I used [coloors](https://coolors.co/) to generate a colour palette with those colours in mind. 
+With the features fleshed out I started working on the design. I was immediately drawn to light pastel pink and mint green colours for my friend. I used [coloors](https://coolors.co/) to generate a colour palette with those colours in mind.
 
+### Colour Palette
 ![screenshot](documentation/colour_palette.png)
 
 From here I built templates to lay out each page. I code better from design templates so built some semi-detailed wire frames for me to work from. The designs were built with mobile first in mind. I tried to do one for each page I could think of that I might need.
@@ -47,17 +48,68 @@ Products to display in a single column on small screens. Navbar to become a an i
 ![diagram](documentation/petsy-wireframes-product-detail.png)
 Will look basically the same on all views
 
-## Account Pages - Login, Logout, Sign Up etc.
+### Account Pages - Login, Logout, Sign Up etc.
 ![diagram](documentation/petsy-wireframes-account-pages.png)
 Very similar on all views again
 
-## Cart Page
+### Cart Page
 ![diagram](documentation/petsy-wireframes-cart.png)
 Small difference on Small screens. Checkout is basically the same as this so with time constraints I stopped here.
 
 ## Database Design and Django Models
 Now, having a good idea of the lay out of the app, pages and data to be collected from different users I moved on to planning my database models. I was going to need a few. I sketched out some ERDs on paper before converting them digitally.
 
-### ERD
+## ERD
 ![diagram](documentation/petsy-erd.png)
+
+## Validation
+- I used W3C validators on the HTML output for everypage both logged in and logged out as well as for my CSS.
+- I used JSLint to validate my JS.
+- I used Code Institutes Python Linter to validate my python code.
+Please [click here](VALIDATION.mg) to view the outputs.
+
+## Features - Implemented
+
+### Responsive Navbar with Dynamic Links
+The navbar allows the user to navigate to the most important pages on the website. It is responsive on all screen sizes for intuitive usability and shows links relevant to logged in and out users respectively. It also displays feedback to the user that they are logged in by providing a greeting to the user if they are logged in.
+
+### Funtioning User Cart
+Given a logged in user a user can view, add, remove and adjust products within their cart.
+The cart also gives a cart summary to the user of total items and price.
+Guest cart functionality was out of scope for the time limits and requirements for this project. I intend to implement it fully once marked.
+From the cart page, you can progress through to checking out.
+
+### Checkout, Shipping and Payment
+You can add a shipping address to your order and checkout.
+The flow for checking out is implemented without a payment gateway currently as was out of scope for this project.
+Checkout currently spoofs completion and closes the users current order, opening a fresh cart programmatically for the user to buy again.
+
+### Store View With Pagination To Browse Products
+A user can browse all current listed products on a clean, pageinated page, which allows them to scroll through all products.
+
+### Product Detail View
+A user can see a products details by simply clicking it to open up it's detail page.
+
+### Add To Cart
+Add to cart functionality is available for logged in users. 
+Logged out users are prompted to log in to be able to use cart funtions.
+
+### User Reviews
+All users can view reviews on a product if a product has them.
+Logged out users are prompted to log in to leave a review.
+Logged in users can Create, Update and Delete their own reviews.
+Logged in users can see, edit and delete their unapproved reviews and they are styled to look different from approved reviews.
+
+### Admin Can Create Products
+Admin can create products in the admin panel.
+
+### Admin Panel Management
+Admins can manage products, reviews and everything to do with users in the admin panel.
+
+### Feedback Messages To User
+Users are given feedback messages when interacting with the website for logging in, out, adding and deleting reviews etc.
+
+### Footer
+The footer contains links to easily find our social media as is commonly expected.
+
 
