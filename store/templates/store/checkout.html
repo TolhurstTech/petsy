@@ -84,9 +84,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript">
-        // Set total here so can use django template tags to get value
-        var total = '{{ order.get_cart_total }}'
-    </script>
-    <script type="text/javascript" src="{% static 'js/checkout.js' %}"></script>
+    <script type= src="{% static 'js/checkout.js' %}"></script>
 {% endblock %}
