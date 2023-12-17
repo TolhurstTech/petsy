@@ -47,8 +47,10 @@
             </div>
             <!-- Product details -->
             <div class="col-8">
-                <h2>{{ product.name }}</h2>
-                <article>{{ product.content | safe }}</article>
+                <article>
+                    <h2>{{ product.name }}</h2>
+                    {{ product.content | safe }}
+                </article>
                 <div class="row justify-content-between mt-5 mb-5 align-items-end">
                     <div class="col-4">
                         <h4>Price</h4>
