@@ -1,6 +1,8 @@
 # [Petsy](https://pet-emporium-f2ff81a3d126.herokuapp.com/)
  ![screenshot](documentation/responsive-petsy.png)
 
+## Technologies 
+
 ## About Petsy
 Petsy is my final capstone project for the Fullstack Developer Bootcamp course at code Institute. For this project we were set the task of creating a responsive, full stack web app using an MVC framework with the following specifications:
 - Follow UX Design principles to build your app with user and mobile first design
@@ -111,5 +113,31 @@ Users are given feedback messages when interacting with the website for logging 
 
 ### Footer
 The footer contains links to easily find our social media as is commonly expected.
+
+## Features - Out of Scope But Planned
+
+## Search Functionality
+So a user can search the catalogue for items they are looking for.
+The search feature was a focal point of the design and functionality but I misjudged the time scale for implementing this part of the app and so it is currently just for show.
+
+## Guest Cart
+Allowing a customer to checkout without registration.
+The code is ready to have guest cart implementation added but had to be spoofed for the current timescale to make sure I hit the project requirements for marking. 
+
+## Payment Gateway
+Allow a user to pay for their order.
+The app is ready for payment gateway implementation and will eventually have paypal cart implemented. It was again out of scope for the requirements and time limits on this project.
+
+## Order Management
+Allow the user to view their past orders and their status.
+This was also a feature planned from the start but was cut short by time constraints, too. The order page is set to be built after marking.
+
+## Categories
+Products are already stored within categories. Having category options for browsing on the store page was a planned feature. This would allwo users to browse by category opening up pages with products listed within that category to make browsing a little easier.
+
+# [Testing](TESTING.md)
+Please click the link above to see testing.
+
+
 
 
