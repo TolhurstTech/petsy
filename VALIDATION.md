@@ -7,26 +7,41 @@ I used W3C to validate my CSS and fix any conformity errors.
 
 ## JSLint JavaScript Validation
 I validated all my JS scripts with JSLint. A couple of minor errors were left as I didn't put some logic inside functions leaving some global variables and didn't quite have time to fix that at this stage.
-
-![screenshot](documentation/petsy-cartjs-validation.png)
 ### Cart JS validation.
+![screenshot](documentation/petsy-cartjs-validation.png)
 
-![screenshot](documentation/petsy-checkoutjs-validation.png)
 ### Checkout JS validation.
+![screenshot](documentation/petsy-checkoutjs-validation.png)
 
-![screenshot](documentation/petsy-reviewjs-validation.png)
 ### Review JS validation.
+![screenshot](documentation/petsy-reviewjs-validation.png)
+
 
 ## W3C HTML Validation
+Validated the html both in logged in and logged out states as the html is slightly different for both.
+I found some errors in different states and cleaned them all up.
+### Home/Store - logged out
 ![screenshot](documentation/home-html-validation.png)
-### Home/Store
 
+### Product - logged out
 ![screenshot](documentation/product-validation.png)
-### Product
 
+### Cart - logged out
 ![screenshot](documentation/logged-out-cart-html-validation.png)
-### Cart
 
+### Checkout - logged out
 ![screenshot](documentation/loggedout-checkout-validation.png)
-### Checkout
+
+### Home/Store - logged in
+![screenshot](documentation/home-html-validation.png)
+
+### Product - logged in
+![screenshot](documentation/product-validation.png)
+
+### Cart - logged in
+![screenshot](documentation/logged-out-cart-html-validation.png)
+
+### Checkout - logged in
+![screenshot](documentation/loggedout-checkout-validation.png)
+
 
