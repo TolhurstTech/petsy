@@ -1,39 +1,39 @@
 // Get all buttons that update cart state identified using class update-cart
-var btnsThatUpdate = document.getElementsByClassName('update-cart')
+var btnsThatUpdate = document.getElementsByClassName("update-cart");
 
-for (i = 0; i < btnsThatUpdate.length; i++) {
+for (let i = 0; i < btnsThatUpdate.length; i++) {
     // Add event listeners to btns and gather btn data
-    btnsThatUpdate[i].addEventListener('click', function(){
-        var productId = this.dataset.product
-        var action = this.dataset.action
+    btnsThatUpdate[i].addEventListener("click", function(){
+        var productId = this.dataset.product;
+        var action = this.dataset.action;
 
         // Handle user cart update actions based on logged in status
-        if(user === 'AnonymousUser'){
+        if(user === "AnonymousUser"){
             // Guest cart code will go here
-            console.log('Not logged In')
+            console.log("Not logged In");
         } else {
-            updateUserOrder(productId, action)
+            updateUserOrder(productId, action);
         }
-    })
+    });
 }
 
 function updateUserOrder(productId, action) {
-    var url = '/update_item/'
+    var url = "/update_item/";
 
     fetch(url, {
-        method: 'POST',
+        body:JSON.stringify({"productId": productId, "action": action}),
         headers:{
-            'Content-Type':'application/json',
-            'X-CSRFToken':csrftoken,
+            "Content-Type":"application/json",
+            "X-CSRFToken":csrftoken
         },
-        body:JSON.stringify({'productId': productId, 'action': action})
+        method: "POST"
     })
 
     .then((response) => {
-        return response.json()
+        return response.json();
     })
 
     .then((data) =>{
-        location.reload()
+        location.reload();
     })
 }

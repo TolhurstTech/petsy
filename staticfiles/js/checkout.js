@@ -1,59 +1,57 @@
-var form = document.getElementById('form')
-csrftoken = form.getElementsByTagName("input")[0].value
+var form = document.getElementById("form");
+var csrftoken = form.getElementsByTagName("input")[0].value;
 
 // Event Listeners
 
 // Catch the shipping details form submission and handle it
-form.addEventListener('submit', function(e){
+form.addEventListener("submit", function(e){
     // Prevent the default
-    e.preventDefault()
+    e.preventDefault();
     // Hide the shipping form submit button
-    document.getElementById('form-button').classList.add('hidden')
+    document.getElementById("form-button").classList.add("hidden");
     // Show payment options section ready to pay
-    document.getElementById('payment-info').classList.remove('hidden')
-})
+    document.getElementById("payment-info").classList.remove("hidden");
+});
 
-document.getElementById('make-payment').addEventListener('click', function(e){
-    submitFormData()
-})
+document.getElementById("make-payment").addEventListener("click", function(e){
+    submitFormData();
+});
 
 // Logic to submit form
 function submitFormData() {
-
+    // User form
     var userFormData = {
-        'name':null,
-        'email':null,
-        'total':total,
-    }
+        "email":null,
+        "name":null
+    };
 
+    // Shipping address form
     var shippingInfo = {
-        'address': form.address.value,
-        'city': form.city.value,
-        'county': form.county.value,
-        'postcode': form.postcode.value,
-        'country': form.country.value,
-    }
+        "address": form.address.value,
+        "city": form.city.value,
+        "country": form.country.value,
+        "county": form.county.value,
+        "postcode": form.postcode.value
+    };
 
-    if (user == 'AnonymousUser'){
-        userFormData.name = form.name.value
-        userFormData.email = form.email.value
-    }
+    var url = "/process_order/";
+    userFormData.name = form.name.value;
+    userFormData.email = form.email.value;
 
-    var url = '/process_order/'
-
+    // fetch api to send data for order completion
     fetch(url, {
-        method:'POST',
+        body:JSON.stringify({"form":userFormData, "shipping":shippingInfo}),
         headers:{
-            'Content-Type':'application/json',
-            'X-CSRFToken':csrftoken,
+            "Content-Type":"application/json",
+            "X-CSRFToken":csrftoken
         },
-        body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),
+        method:"POST"
     })
 
     .then((response) => response.json())
 
     .then((data) => {
-        alert('Transaction completed');
-        window.location.href = "/"
-    })
+        alert("Transaction completed");
+        window.location.href = "/";
+    });
 }
