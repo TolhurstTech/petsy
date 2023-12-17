@@ -18,6 +18,9 @@ I originally planned to try and use the Edx.org api to create a very basic LMS s
 
 Petsy is a simple ecommerce website that allows the site admin to list products for their users to buy and review. To start building the app I started with planning of the app with the users in mind. I stepped through how each user type might use the site and it's functionality and built user stories that helped me to fill out the features the site would have. I used Github's custom templates to use my own template to create Issues in the form of my User Stories so they would fuel my workflow. Issues were linked to my project workflow and I tracked my progress and decided what to do next based on these tasks.
 
+## User Types and Target Audience
+I identified there would be two main user types for the project, the shop admin and customers. The shop admin is small, independent, business owner looking for an online presence and shop to sell and advertise her handmade dog accessories. The target audience is dog owners with expendable income looking for something a little special for their pet.
+
 ## [User Stories](https://github.com/TolhurstTech/petsy/issues)
 Click the link above to view this project's user stories and user story driven workflow
 
