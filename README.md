@@ -64,7 +64,7 @@ Now, having a good idea of the lay out of the app, pages and data to be collecte
 ## ERD
 ![diagram](documentation/petsy-erd.png)
 
-## Validation
+## [Validation](VALIDATION.mg)
 - I used W3C validators on the HTML output for everypage both logged in and logged out as well as for my CSS.
 - I used JSLint to validate my JS.
 - I used Code Institutes Python Linter to validate my python code.
