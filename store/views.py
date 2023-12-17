@@ -10,7 +10,26 @@ from .forms import ReviewForm
 
 # Create your views here.
 
-class ProductList(generic.ListView):    
+class ProductList(generic.ListView): 
+    '''
+    Displays all products from :model:`store.Product` using djangos list view with pagination.
+
+    **Context**
+
+    ``items``
+        The items for any open carts to calculate cart totals in the navbar in this view from :model: `OrderItem`
+
+    ``order``
+        The users current order/open cart object from :model: `store.Order`
+
+    ``cartItems``
+        Total number of cart items for the basket total from :model: `store.Order`
+
+    ``product``
+        Sent through by default to display each product
+
+    :template:`store/store.html`
+    '''   
     model = Product
     queryset = Product.objects.filter(draft=1)
     template_name = "store/store.html"
@@ -41,24 +60,23 @@ class ProductList(generic.ListView):
 
 def cart(request):
     '''
-    Fetches or creates a single :model: `Order` instance for the current customer dynamically
+    Fetches or creates a single :model: `store.Order` instance for the current customer dynamically
     by logged in status and sets it's items before rendering it 
 
     **Context**
 
     ``items``
-        All items with this order ID to be attached to the order
+        All items with this order ID to be attached to the order from :model: `OrderItem`
 
     ``order``
-        The users current order/open cart object
+        The users current order/open cart object from :model: `store.Order`
 
     ``cartItems``
-        Total number of cart items for the basket total
+        Total number of cart items for the basket total from :model: `store.Order`
 
     :template:`store/cart.html`
     '''
 
-    # Quick way to send cart total to the template for the navbar
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -83,16 +101,20 @@ def product_detail(request, slug):
 
     **Context**
 
-    ``post``
+    ``product``
         An instance of :model:`store.Product`.
 
     ``cartItems``
+        Total number of cart items for the basket total from :model:`store.OrderItem`
 
     ``reviews``
-    
+        All reviews from :model:`store.Reviews` related to :model:`store.Order`
+
     ``review_count``
+        The count of how many reviews that product has.
 
     ``review_form``
+        The form for creating reviews
 
     **Template:**
 
@@ -144,6 +166,24 @@ def product_detail(request, slug):
     )
 
 def checkout(request):
+    """
+    Display an instance of :model:`store.Order` in the checkout page.
+
+    **Context**
+
+    ``order``
+        The customers current open instance of :model:`store.Order`
+
+    ``items``
+        All items from :model:`OrderItems` related to thie :model:`store.Order` instance.
+
+    ``cartItems``
+        Total number of cart items for the basket total from :model:`store.OrderItem`
+
+    **Template:**
+
+    :template:`store/checkout.html`
+    """
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -163,6 +203,10 @@ def checkout(request):
 
 
 def updateItem(request):
+    """
+    Updates the instance of :model:`store.Order` for displaying the cart and checkout pages.
+    """
+
     # Get the body sent in our fetch from updateUserOrder
     data = json.loads(request.body)
     productId = data['productId']
@@ -196,6 +240,10 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
+    ''' 
+    Uses json and the fetch api to process the :model:`order` for payment.
+    Currently spoofed as out of scope for this assignment.
+    '''
     transaction_id = datetime.datetime.now().timestamp()
     data =json.loads(request.body)
 
@@ -227,7 +275,7 @@ def processOrder(request):
 
 def review_edit(request, slug, review_id):
     ''' 
-    View to edit reviews
+    View to edit :model:`store.Review` on given :model:`store.Prodct`.
     '''
 
     if request.method == "POST":
@@ -250,7 +298,7 @@ def review_edit(request, slug, review_id):
 
 def review_delete(request, slug, review_id):
     """
-    View to delete review
+    View to delete :model:`store.Review` on given :model:`store.Prodct`.
     """
     queryset = Product.objects.filter(draft=1)
     product = get_object_or_404(queryset, slug=slug)
