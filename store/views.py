@@ -17,16 +17,16 @@ class ProductList(generic.ListView):
     **Context**
 
     ``items``
-        The items for any open carts to calculate cart totals in the navbar in this view from :model: `OrderItem`
+        The items for any open carts to calculate cart totals in the navbar in this view from :model:`OrderItem`
 
     ``order``
-        The users current order/open cart object from :model: `store.Order`
+        The users current order/open cart object from :model:`store.Order`
 
     ``cartItems``
-        Total number of cart items for the basket total from :model: `store.Order`
+        Total number of cart items for the basket total from :model:`store.Order`
 
     ``product``
-        Sent through by default to display each product
+        Sent through by default to display each product :model:`store.Product`
 
     :template:`store/store.html`
     '''   
@@ -114,7 +114,7 @@ def product_detail(request, slug):
         The count of how many reviews that product has.
 
     ``review_form``
-        The form for creating reviews
+        The form for creating reviews. Instance of :form:`store.ReviewForm`.
 
     **Template:**
 
@@ -236,12 +236,11 @@ def updateItem(request):
         # Give the user a prompt here to check if they would like to delete it
         orderItem.delete()
 
-    
     return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
     ''' 
-    Uses json and the fetch api to process the :model:`order` for payment.
+    Uses json and the fetch api to process the :model:`Order` for payment.
     Currently spoofed as out of scope for this assignment.
     '''
     transaction_id = datetime.datetime.now().timestamp()
@@ -254,8 +253,8 @@ def processOrder(request):
         order.transaction_id = transaction_id
 
         # Check cart items haven't been manipulated in front end with JS before setting order to complete
-        # Only works with guest cart implemented
-        #if total == order.get_cart_total:
+        # Below only works with guest cart implemented. Commented out to implement after marking.
+        # if total == order.get_cart_total:
         #    order.complete = True
 
         # Can be spoofed by hackers until I finish guest checkout but close order as completed for now

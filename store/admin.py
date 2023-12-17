@@ -4,6 +4,7 @@ from .models import *
 
 # Register your models here.
 
+
 @admin.register(Product)
 class ProductAdmin(SummernoteModelAdmin):
     """
@@ -16,9 +17,9 @@ class ProductAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     summernote_fields = ('content',)
 
+
 admin.site.register(Customer)
 admin.site.register(Order)
 admin.site.register(OrderItem)
 admin.site.register(Review)
 admin.site.register(ShippingAddress)
-
