@@ -17,9 +17,9 @@ I originally planned to try and use the Edx.org api to create a very basic LMS s
 Petsy is a simple ecommerce website that allows the site admin to list products for their users to buy and review. To start building the app I started with planning of the app with the users in mind. I stepped through how each user type might use the site and it's functionality and built user stories that helped me to fill out the features the site would have. I used Github's custom templates to use my own template to create Issues in the form of my User Stories so they would fuel my workflow. Issues were linked to my project workflow and I tracked my progress and decided what to do next based on these tasks.
 
 ## [User Stories](https://github.com/TolhurstTech/petsy/issues)
-Click the link to view this project's user stories
+Click the link above to view this project's user stories and user story driven workflow
 
-## Features
+## Features - Ideation
 When generating user stories I identified that the site would need the following minimum features to meet the expectations of most users when visiting a simple e-commerce website as well as the specifications for my final project:
 - A responsive, dynamic, navigation bar
 - An admin panel for admin to create and products as well as the website
@@ -56,7 +56,7 @@ Very similar on all views again
 Small difference on Small screens. Checkout is basically the same as this so with time constraints I stopped here.
 
 ## Database Design and Django Models
-Now having a good idea of the lay out of the app, pages and data to be collected from different users I moved on to planning my database models. I was going to need a few. I sketched out some ERDs on paper before converting them digitally.
+Now, having a good idea of the lay out of the app, pages and data to be collected from different users I moved on to planning my database models. I was going to need a few. I sketched out some ERDs on paper before converting them digitally.
 
 ### ERD
 ![diagram](documentation/petsy-erd.png)
