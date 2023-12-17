@@ -5,7 +5,10 @@ from allauth.account.forms import SignupForm
 
 # Override allauth signup form to include names for customer model
 class MyCustomSignupForm(SignupForm):
-    ''' Overrides the default allauth signup form to include first and last name.'''
+    '''
+    Overrides the default allauth signup form
+    to include first and last name.
+    '''
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password')
