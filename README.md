@@ -54,6 +54,12 @@ With the features fleshed out I started working on the design. I was immediately
 ### Colour Palette
 ![screenshot](documentation/colour_palette.png)
 
+### Typography
+I chose three fonts from Google for the design.
+Main text - Hedvig Letters Sans
+Headers - Hedvig Letters Serif
+Logo - Playball
+
 From here I built templates to lay out each page. I code better from design templates so built some semi-detailed wire frames for me to work from. The designs were built with mobile first in mind. I tried to do one for each page I could think of that I might need.
 
 ### Store / Home Page Frames
