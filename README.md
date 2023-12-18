@@ -2,6 +2,17 @@
  ![screenshot](documentation/responsive-petsy.png)
 
 ## Technologies 
+- HTML5 
+- CSS3
+- Django 4
+- Bootstrap 5
+- Python 3
+- PostgreSQL 15
+- JavaScript
+- Cloudinary - For hosting media files
+- Git - For version control with github
+- GitHub - For version control and project management
+- Heroku - For deployment
 
 ## About Petsy
 Petsy is my final capstone project for the Fullstack Developer Bootcamp course at code Institute. For this project we were set the task of creating a responsive, full stack web app using an MVC framework with the following specifications:
@@ -140,6 +151,16 @@ Products are already stored within categories. Having category options for brows
 
 # [Testing](TESTING.md)
 Please click the link above to see testing.
+
+# Credits
+[W3Schools](https://www.w3schools.com) - For CSS, HTML, JavaScript, and Django advice
+[Bootstrap 5 documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - For help with Bootstrap
+[Django documentation](https://docs.djangoproject.com/en/4.2/) - For Django problems
+[Stack Overflow](https://stackoverflow.com/) - For finding solutions to just about every problem I had
+[Dennis Ivy](https://www.youtube.com/@DennisIvy) - For [this tutorial series](https://www.youtube.com/playlist?list=PL-51WBLyFTg0omnamUjL1TCVov7yDTRng) helping me to make the basis of my shop functionality
+[Code Institute Django Blog Tutorial](https://codeinstitute.net/) - For the basis of my reviews functionality
+[Bing Chat with GPT-4](https://www.bing.com/) - For help trouble shooting problems and using Dall-e 3 to generate product images
+
 
 
 
