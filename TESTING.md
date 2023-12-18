@@ -60,7 +60,7 @@ Upon completion of the project I developed these manual test to make sure the pr
 | Product Detail | Load page | See's approved reviews below product | Pass |
 | Product Detail | Load page | See's a form to leave reviews below product | Pass |
 | Product Detail | Load page | Can see delete and edit buttons on own reviews | Pass |
-| Product Detail | Load page | Can own reviews awaiting review | Pass |
+| Product Detail | Load page | Can see own reviews awaiting review | Pass |
 | Product Detail | Click edit button | Opens review in review form to be edited | Pass |
 | Product Detail | Click delete button | Opens model to double check deletion | Pass |
 | Product Detail | Click delete button in Modal | Review is deleted | Pass |
@@ -74,3 +74,17 @@ Upon completion of the project I developed these manual test to make sure the pr
 | Cart | Load Page | Displays items user added to cart with correct quantities and totals | Pass |
 | Cart |  Click the logo | Should navigate to the homepage | Pass        |
 | Cart | Click every navigation link | Should open the correct page and set the current page link as active with aria label | Pass|
+| Cart | Click up arrows on every product multiple times | Total increases for each product inline with clicks | Pass |
+| Cart | Click down arrows on every product multiple times | Total decreases for each product inline with clicks | Pass |
+| Cart | Click down arrows on products with qty of 1 | Item is removed from the cart | Pass |
+| Cart | Click Checkout button | Takes you to the checkout with you current cart as the order summary | Pass |
+| Checkout | Submit Shipping details | Submit button disappears and payment button appears | Pass |
+| Checkout | Click payment button | Spoofed payment gives alert transaction is complete | Pass |
+| Checkout | Click Payment button | User is returned to storefront with a fresh cart with a total of 0 and no items | Pass |
+
+# Responsivity
+Site was tested at all bootstrap default breakpoints. I set up my media queries to match Bootstrap breakpoints to keep everything uniform.
+
+# Browser Compatibility
+The site has been tested in Chrome, Microsoft Edge, Chrome for Android and Android browser.
+
