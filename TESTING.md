@@ -82,9 +82,9 @@ Upon completion of the project I developed these manual test to make sure the pr
 | Checkout | Click payment button | Spoofed payment gives alert transaction is complete | Pass |
 | Checkout | Click alert OK button | User is returned to storefront with a fresh cart with a total of 0 and no items | Pass |
 
-## Problems Found
-I found during testing that first and last names weren't actually being saved to the database during sign up and therefore weren't being passed to the shipping address form correctly.
-I currently don't have time to fix this bug properly but I removed the code to hide email and name fields for logged in users to allow the name to still be captured and saved with the address.
+## Bugs / Problems Found
+I found during testing that first and last names weren't actually being saved to the database during sign up and therefore weren't being passed to the Customer model or shipping address form correctly.
+I currently don't have time to fix this bug properly so I removed the code to hide email and name fields for logged in users to allow the name to still be captured and saved with the address.
 
 # Responsivity
 Site was tested at all bootstrap default breakpoints and appears to work as it should. I set up my media queries to match Bootstrap breakpoints to keep everything uniform, too.
