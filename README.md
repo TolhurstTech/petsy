@@ -56,9 +56,9 @@ With the features fleshed out I started working on the design. I was immediately
 
 ### Typography
 I chose three fonts from Google for the design.
-Main text - Hedvig Letters Sans
-Headers - Hedvig Letters Serif
-Logo - Playball
+- Main text - Hedvig Letters Sans
+- Headers - Hedvig Letters Serif
+- Logo - Playball
 
 From here I built templates to lay out each page. I code better from design templates so built some semi-detailed wire frames for me to work from. The designs were built with mobile first in mind. I tried to do one for each page I could think of that I might need.
 
@@ -159,13 +159,13 @@ Products are already stored within categories. Having category options for brows
 Please click the link above to see testing.
 
 # Credits
-[W3Schools](https://www.w3schools.com) - For CSS, HTML, JavaScript, and Django advice
-[Bootstrap 5 documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - For help with Bootstrap
-[Django documentation](https://docs.djangoproject.com/en/4.2/) - For Django problems
-[Stack Overflow](https://stackoverflow.com/) - For finding solutions to just about every problem I had
-[Dennis Ivy](https://www.youtube.com/@DennisIvy) - For [this tutorial series](https://www.youtube.com/playlist?list=PL-51WBLyFTg0omnamUjL1TCVov7yDTRng) helping me to make the basis of my shop functionality
-[Code Institute Django Blog Tutorial](https://codeinstitute.net/) - For the basis of my reviews functionality
-[Bing Chat with GPT-4](https://www.bing.com/) - For help trouble shooting problems and using Dall-e 3 to generate product images
+- [W3Schools](https://www.w3schools.com) - For CSS, HTML, JavaScript, and Django advice
+- [Bootstrap 5 documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - For help with Bootstrap
+- [Django documentation](https://docs.djangoproject.com/en/4.2/) - For Django problems
+- [Stack Overflow](https://stackoverflow.com/) - For finding solutions to just about every problem I had
+- [Dennis Ivy](https://www.youtube.com/@DennisIvy) - For [this tutorial series](https://www.youtube.com/playlist?list=PL-51WBLyFTg0omnamUjL1TCVov7yDTRng) helping me to make the basis of my shop functionality
+- [Code Institute Django Blog Tutorial](https://codeinstitute.net/) - For the basis of my reviews functionality
+- [Bing Chat with GPT-4](https://www.bing.com/) - For help trouble shooting problems and using Dall-e 3 to generate product images
 
 
 
