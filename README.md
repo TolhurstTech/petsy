@@ -95,15 +95,20 @@ Please [click here](VALIDATION.md) to view the outputs.
 ### Responsive Navbar with Dynamic Links
 The navbar allows the user to navigate to the most important pages on the website. It is responsive on all screen sizes for intuitive usability and shows links relevant to logged in and out users respectively. It also displays feedback to the user that they are logged in by providing a greeting to the user if they are logged in.
 
-### Funtioning User Cart
+### Functioning User Cart
 Given a logged in user a user can view, add, remove and adjust products within their cart.
+
 The cart also gives a cart summary to the user of total items and price.
+
 Guest cart functionality was out of scope for the time limits and requirements for this project. I intend to implement it fully once marked.
+
 From the cart page, you can progress through to checking out.
 
 ### Checkout, Shipping and Payment
 You can add a shipping address to your order and checkout.
+
 The flow for checking out is implemented without a payment gateway currently as was out of scope for this project.
+
 Checkout currently spoofs completion and closes the users current order, opening a fresh cart programmatically for the user to buy again.
 
 ### Store View With Pagination To Browse Products
@@ -113,13 +118,17 @@ A user can browse all current listed products on a clean, pageinated page, which
 A user can see a products details by simply clicking it to open up it's detail page.
 
 ### Add To Cart
-Add to cart functionality is available for logged in users. 
+Add to cart functionality is available for logged in users.
+
 Logged out users are prompted to log in to be able to use cart funtions.
 
 ### User Reviews
 All users can view reviews on a product if a product has them.
+
 Logged out users are prompted to log in to leave a review.
+
 Logged in users can Create, Update and Delete their own reviews.
+
 Logged in users can see, edit and delete their unapproved reviews and they are styled to look different from approved reviews.
 
 ### Admin Can Create Products
@@ -138,18 +147,22 @@ The footer contains links to easily find our social media as is commonly expecte
 
 ### Search Functionality
 So a user can search the catalogue for items they are looking for.
+
 The search feature was a focal point of the design and functionality but I misjudged the time scale for implementing this part of the app and so it is currently just for show.
 
 ### Guest Cart
 Allowing a customer to checkout without registration.
+
 The code is ready to have guest cart implementation added but had to be spoofed for the current timescale to make sure I hit the project requirements for marking. 
 
 ### Payment Gateway
 Allow a user to pay for their order.
+
 The app is ready for payment gateway implementation and will eventually have paypal cart implemented. It was again out of scope for the requirements and time limits on this project.
 
 ### Order Management
 Allow the user to view their past orders and their status.
+
 This was also a feature planned from the start but was cut short by time constraints, too. The order page is set to be built after marking.
 
 ### Categories
@@ -157,6 +170,28 @@ Products are already stored within categories. Having category options for brows
 
 # [Testing](TESTING.md)
 Please click the link above to see testing.
+
+# Deployment
+The project is deployed on [Heroku](https://www.heroku.com).
+
+The database is hosted externally with [ElephantSQL](https://www.elephantsql.com)
+
+You can view the deployed project [here](https://pet-emporium-f2ff81a3d126.herokuapp.com/)
+
+To deploy the app:
+* Navigate to [Heroku](https://www.heroku.com) and login to your dashboard or sign up to get to it
+* Create a new app with a unique name and select a location closest to you
+* Click "Settings" and then "Reveal config vars"
+* You will need to set the config vars:
+    * CLOUDINARY
+    * DATABASE_URL
+    * SECRET_KEY
+* Click the "Deploy" tab
+* Next to "Deployment method", select connect to github
+* Choose your branched version of the project from your github
+* Scroll down to "Manual Deploy" and click "Deploy branch"
+
+All config vars are stored in a file env.py locally for development and aren't pushed to production. The need to be set at the host for security.
 
 # Credits
 - [W3Schools](https://www.w3schools.com) - For CSS, HTML, JavaScript, and Django advice
