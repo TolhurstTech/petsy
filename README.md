@@ -32,7 +32,7 @@ Petsy is a simple ecommerce website that allows the site admin to list products 
 ## User Types and Target Audience
 I identified there would be two main user types for the project, the shop admin and customers. The shop admin is small, independent, business owner looking for an online presence and shop to sell and advertise her handmade dog accessories. The target audience is dog owners with expendable income looking for something a little special for their pet.
 
-## [User Stories](https://github.com/TolhurstTech/petsy/issues)
+## [User Stories](https://github.com/users/TolhurstTech/projects/4/views/1)
 Click the link above to view this project's user stories and user story driven workflow
 
 ## Features - Ideation
@@ -84,11 +84,11 @@ Now, having a good idea of the lay out of the app, pages and data to be collecte
 ## ERD
 ![diagram](documentation/petsy-erd.png)
 
-## [Validation](VALIDATION.mg)
+## [Validation](VALIDATION.md)
 - I used W3C validators on the HTML output for everypage both logged in and logged out as well as for my CSS.
 - I used JSLint to validate my JS.
 - I used Code Institutes Python Linter to validate my python code.
-Please [click here](VALIDATION.mg) to view the outputs.
+Please [click here](VALIDATION.md) to view the outputs.
 
 ## Features - Implemented
 
